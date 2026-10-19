@@ -16,8 +16,8 @@ interview/
 │   ├── vo/
 │   └── interview/           # Remaining original standalone files
 ├── bq/
-│   ├── stories/             # Shared behavioral stories and CARL answers
-│   └── deep-dives/          # Detailed project walkthroughs and follow-ups
+│   ├── stories.md           # Shared behavioral stories and CARL answers
+│   └── deep_dive.md         # Detailed project walkthroughs and follow-ups
 ├── system-design/           # General system design preparation
 ├── companies/
 │   ├── Amazon/
@@ -28,7 +28,7 @@ interview/
 ## Where to Put Materials
 
 - **[Coding](coding/):** Algorithms, implementations, online assessments, and coding interview exercises. The existing internal structure is preserved.
-- **[Behavioral preparation](bq/):** General behavioral interview methods and personal preparation. Use `stories/` for concise Context–Actions–Results–Learnings (CARL) answers and `deep-dives/` for project architecture, decisions, tradeoffs, rollout, and detailed follow-ups. These directories currently contain placeholders only.
+- **[Behavioral preparation](bq/):** General behavioral interview methods and personal preparation. Use [stories.md](bq/stories.md) for concise Context–Actions–Results–Learnings (CARL) answers and [deep_dive.md](bq/deep_dive.md) for project architecture, decisions, tradeoffs, rollout, and detailed follow-ups. These files currently contain headings only.
 - **[System design](system-design/README.md):** General concepts, interview frameworks, and design exercises.
 - **[Company preparation](companies/):** Company-specific coding, behavioral, domain, and system design materials. Preserve shared facts in the general preparation areas and link to them when adding company-specific emphasis.
 - **[Practice](practice/):** Mock interview feedback, gaps to address, and follow-up practice notes. This directory currently contains a placeholder only.
