@@ -79,6 +79,8 @@ I completed the prioritized batch of over 40 endpoints on schedule, with around 
 I learned to handle tight deadlines by defining what must be delivered first and finding ways to make essential checks more efficient. Prioritizing scope and automating validation helped me meet the deadline and still maintain compatibility.
 
 ## Conflict Resolution
+
+### Conflict with teammate
 While building our upload rate limiter, I wanted to run it in shadow mode first to check whether the rules would block legitimate traffic. Another engineer disagreed. He argued that the limiter was deterministic: any client exceeding the configured limit should be blocked.
 
 I investigated the traffic, calculated the false-positive rate, and brought concrete examples to our discussion. Multiple legitimate users could share an IP, and internal scripts could also exceed the thresholds. I explained that the limiter could enforce a rule correctly while the rule still misclassified legitimate activity. I proposed logging decisions without blocking requests, then tuning the rules based on those observations. He agreed that shadow testing would help validate the policies before enforcement.
@@ -86,3 +88,14 @@ I investigated the traffic, calculated the false-positive rate, and brought conc
 We agreed to start in shadow mode and enable blocking after validating and reducing false positives. This let us address legitimate traffic patterns before enforcing the rules.
 
 I learned to resolve technical disagreements by separating implementation correctness from whether the design meets the intended goal, and using concrete evidence to build a shared understanding.
+
+## Growth
+
+### A time you failed
+At NewsBreak, I was responsible for migrating a large MongoDB collection from a shared cluster to a new dedicated cluster. After the data was synced, I updated the backend connection URL and deployed the change to all traffic at once. I watched the cluster dashboards for about an hour, saw no problems, and considered the switch done.
+
+During the evening peak, the new cluster's mongos nodes couldn't handle the load. Queries started timing out, and the server returned 5xx errors on the affected endpoints. When the alert fired, I immediately rolled back the connection URL to the old cluster. Then I investigated the new cluster's metrics and found that the mongos layer didn't have enough capacity. I worked with SRE to upgrade the machines and add more mongos nodes. For the second rollout, I shifted traffic gradually from 5% to 100%, and I only declared the migration complete after a week of stable operation.
+
+The incident caused about ten minutes of partial 5xx errors on the affected endpoints. After the rollback, the second migration finished without any issues.
+
+My mistake was assuming the new cluster could handle production traffic without checking that, and skipping a gradual rollout. One hour of monitoring at off-peak didn't tell me anything about peak load. Now, for every MongoDB migration, I estimate the peak QPS the new cluster needs to handle, plan headroom on top of that, ask SRE to scale it ahead of time, and shift traffic gradually.

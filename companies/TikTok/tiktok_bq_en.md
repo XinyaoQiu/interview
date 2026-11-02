@@ -137,5 +137,12 @@ So the organizing principle, in one sentence: one unified content platform plus 
 
 ### Questions to ask
 
-- "What's the biggest technical challenge the team is focused on over the next couple of quarters?"
-- "What does growth look like for engineers here — how do people go from owning features to owning systems?"
+Which part of the logistics flow does your team own, and how does it connect to the teams upstream and downstream?
+
+That’s really helpful. So based on that, what would you say is the biggest technical challenge the team is facing right now?
+
+Interesting, that gives me a good sense of the problem space. And on a more practical note, how does onboarding work for a new grad on your team?
+
+And related to that, what would success look like for someone in this role at three months?
+
+That’s all from me. Thanks for your answers.
