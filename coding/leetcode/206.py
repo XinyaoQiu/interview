@@ -32,3 +32,11 @@ def to_array(head: Optional[ListNode]) -> List[int]:
         res.append(head.val)
         head = head.next
     return res
+
+if __name__ == "__main__":
+    s = Solution()
+    assert to_array(s.reverseList(build_list([1, 2, 3, 4, 5]))) == [5, 4, 3, 2, 1]
+    assert to_array(s.reverseList(build_list([1, 2]))) == [2, 1]
+    assert to_array(s.reverseList(build_list([1]))) == [1]
+    assert s.reverseList(None) is None
+    print("all tests passed")
