@@ -8,6 +8,17 @@ class ListNode:
 
 
 class Solution:
-    # Idea: merge k sorted linked lists into one sorted list.
+    # Idea: collect all values, sort them, rebuild a list.
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
-        pass
+        vals = []
+        for node in lists:
+            while node:
+                vals.append(node.val)
+                node = node.next
+        vals.sort()
+        dummy = ListNode()
+        cur = dummy
+        for v in vals:
+            cur.next = ListNode(v)
+            cur = cur.next
+        return dummy.next
