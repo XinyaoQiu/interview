@@ -56,3 +56,9 @@ if __name__ == "__main__":
     res = sol.mergeKLists([build([1, 4, 5]), build([1, 3, 4]), build([2, 6])])
     assert to_list(res) == [1, 1, 2, 3, 4, 4, 5, 6]
     print("basic ok")
+
+    assert sol.mergeKLists([]) is None
+    assert sol.mergeKLists([None]) is None
+    assert sol.mergeKLists([None, None]) is None
+    assert to_list(sol.mergeKLists([None, build([1])])) == [1]
+    print("edge ok")
