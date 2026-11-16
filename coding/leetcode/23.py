@@ -18,9 +18,9 @@ class Solution:
         if not lists:
             return None
         heap = []
-        for i, node in enumerate(lists):
-            if node:
-                heap.append((node.val, i, node))
+        for i, head in enumerate(lists):
+            if head:
+                heap.append((head.val, i, head))
         heapq.heapify(heap)
         dummy = ListNode()
         cur = dummy
@@ -28,6 +28,7 @@ class Solution:
             _, i, node = heapq.heappop(heap)
             cur.next = node
             cur = node
-            if node.next:
-                heapq.heappush(heap, (node.next.val, i, node.next))
+            nxt = node.next
+            if nxt:
+                heapq.heappush(heap, (nxt.val, i, nxt))
         return dummy.next
