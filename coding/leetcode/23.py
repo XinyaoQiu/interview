@@ -11,6 +11,8 @@ class ListNode:
 
 
 class Solution:
+    # Time: O(N log k) where N is total nodes and k the number of lists.
+    # Space: O(k) for the heap.
     # Idea: keep the head of every list in a min-heap and pop the smallest.
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
         if not lists:
