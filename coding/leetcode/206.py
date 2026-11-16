@@ -17,3 +17,18 @@ class Solution:
             prev = cur
             cur = nxt
         return prev
+
+def build_list(vals: List[int]) -> Optional[ListNode]:
+    dummy = ListNode()
+    tail = dummy
+    for v in vals:
+        tail.next = ListNode(v)
+        tail = tail.next
+    return dummy.next
+
+def to_array(head: Optional[ListNode]) -> List[int]:
+    res = []
+    while head:
+        res.append(head.val)
+        head = head.next
+    return res
