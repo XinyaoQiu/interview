@@ -10,6 +10,8 @@ class ListNode:
 class Solution:
     # Idea: collect all values, sort them, rebuild a list.
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        if not lists:
+            return None
         vals = []
         for node in lists:
             while node:
