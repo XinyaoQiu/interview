@@ -1,4 +1,5 @@
 import heapq
+import random
 
 
 from typing import *
@@ -68,3 +69,10 @@ if __name__ == "__main__":
     res = sol.mergeKLists([build([2, 2]), build([2]), build([2, 2, 2])])
     assert to_list(res) == [2, 2, 2, 2, 2, 2]
     print("duplicates and negatives ok")
+
+    for _ in range(200):
+        data = [sorted(random.randint(-50, 50) for _ in range(random.randint(0, 6)))
+                for _ in range(random.randint(0, 6))]
+        res = to_list(sol.mergeKLists([build(d) for d in data]))
+        assert res == sorted(x for d in data for x in d)
+    print("random ok")
