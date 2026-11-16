@@ -1,3 +1,6 @@
+import heapq
+
+
 from typing import *
 
 
@@ -8,19 +11,21 @@ class ListNode:
 
 
 class Solution:
-    # Idea: collect all values, sort them, rebuild a list.
+    # Idea: keep the head of every list in a min-heap and pop the smallest.
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
         if not lists:
             return None
-        vals = []
-        for node in lists:
-            while node:
-                vals.append(node.val)
-                node = node.next
-        vals.sort()
+        heap = []
+        for i, node in enumerate(lists):
+            if node:
+                heap.append((node.val, i, node))
+        heapq.heapify(heap)
         dummy = ListNode()
         cur = dummy
-        for v in vals:
-            cur.next = ListNode(v)
-            cur = cur.next
+        while heap:
+            _, i, node = heapq.heappop(heap)
+            cur.next = node
+            cur = node
+            if node.next:
+                heapq.heappush(heap, (node.next.val, i, node.next))
         return dummy.next
