@@ -32,3 +32,27 @@ class Solution:
             if nxt:
                 heapq.heappush(heap, (nxt.val, i, nxt))
         return dummy.next
+
+
+def build(vals):
+    dummy = ListNode()
+    cur = dummy
+    for v in vals:
+        cur.next = ListNode(v)
+        cur = cur.next
+    return dummy.next
+
+
+def to_list(node):
+    out = []
+    while node:
+        out.append(node.val)
+        node = node.next
+    return out
+
+
+if __name__ == "__main__":
+    sol = Solution()
+    res = sol.mergeKLists([build([1, 4, 5]), build([1, 3, 4]), build([2, 6])])
+    assert to_list(res) == [1, 1, 2, 3, 4, 4, 5, 6]
+    print("basic ok")
