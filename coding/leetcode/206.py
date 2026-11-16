@@ -6,7 +6,8 @@ class ListNode:
         self.next = next
 
 class Solution:
-    # Idea: reverse every next pointer in the list.
+    # Idea: walk the list once, pointing each node back at the previous one.
+    # Time: O(n), Space: O(1)
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         prev = None
         cur = head
