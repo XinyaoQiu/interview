@@ -62,3 +62,9 @@ if __name__ == "__main__":
     assert sol.mergeKLists([None, None]) is None
     assert to_list(sol.mergeKLists([None, build([1])])) == [1]
     print("edge ok")
+
+    res = sol.mergeKLists([build([-2, -1, -1]), build([-3]), build([0, 0, 5])])
+    assert to_list(res) == [-3, -2, -1, -1, 0, 0, 5]
+    res = sol.mergeKLists([build([2, 2]), build([2]), build([2, 2, 2])])
+    assert to_list(res) == [2, 2, 2, 2, 2, 2]
+    print("duplicates and negatives ok")
