@@ -41,6 +41,15 @@ if __name__ == "__main__":
         ([1], [1]),
         ([1, 3, 2], [2, 1, 3]),
     ]
+    # cross-check against itertools on all permutations with duplicates
+    from itertools import permutations
+    for arr in ([1, 2, 2, 3], [0, 1, 1, 0], [2, 3, 1, 3, 3]):
+        perms = sorted(set(permutations(arr)))
+        for k, cur in enumerate(perms):
+            nums = list(cur)
+            sol.nextPermutation(nums)
+            expected = list(perms[(k + 1) % len(perms)])
+            assert nums == expected, (cur, nums, expected)
     for nums, expected in cases:
         sol.nextPermutation(nums)
         assert nums == expected, (nums, expected)
