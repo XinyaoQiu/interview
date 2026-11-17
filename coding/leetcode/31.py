@@ -22,7 +22,9 @@ class Solution:
                 j -= 1
             nums[i], nums[j] = nums[j], nums[i]
         # suffix is in descending order, reverse it to ascending
-        left, right = i + 1, n - 1
+        self.reverse(nums, i + 1, n - 1)
+
+    def reverse(self, nums: List[int], left: int, right: int) -> None:
         while left < right:
             nums[left], nums[right] = nums[right], nums[left]
             left += 1
