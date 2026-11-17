@@ -5,6 +5,7 @@ class Solution:
     def nextPermutation(self, nums: List[int]) -> None:
         """
         Do not return anything, modify nums in-place instead.
+        Time: O(n), Space: O(1).
         Idea: find the rightmost ascent, swap with the next larger value
         on its right, then reverse the suffix.
         """
@@ -29,3 +30,18 @@ class Solution:
             nums[left], nums[right] = nums[right], nums[left]
             left += 1
             right -= 1
+
+
+if __name__ == "__main__":
+    sol = Solution()
+    cases = [
+        ([1, 2, 3], [1, 3, 2]),
+        ([3, 2, 1], [1, 2, 3]),
+        ([1, 1, 5], [1, 5, 1]),
+        ([1], [1]),
+        ([1, 3, 2], [2, 1, 3]),
+    ]
+    for nums, expected in cases:
+        sol.nextPermutation(nums)
+        assert nums == expected, (nums, expected)
+    print("all tests passed")
