@@ -9,6 +9,8 @@ class Solution:
         on its right, then reverse the suffix.
         """
         n = len(nums)
+        if n < 2:
+            return
         i = n - 2
         # find the rightmost index i with nums[i] < nums[i + 1]
         while i >= 0 and nums[i] >= nums[i + 1]:
