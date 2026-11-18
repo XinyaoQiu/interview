@@ -17,3 +17,22 @@ class Solution:
             if nums[i] != i + 1:
                 return i + 1
         return n + 1
+
+
+if __name__ == "__main__":
+    solution = Solution()
+    cases = [
+        ([1, 2, 0], 3),
+        ([3, 4, -1, 1], 2),
+        ([7, 8, 9, 11, 12], 1),
+        ([1], 2),
+        ([2], 1),
+        ([1, 1], 2),
+        ([2, 2, 1, 1], 3),
+        ([-1, -2, 0], 1),
+        ([1, 2, 3, 4, 5], 6),
+    ]
+    for nums, expected in cases:
+        result = solution.firstMissingPositive(list(nums))
+        assert result == expected, (nums, result, expected)
+    print("all tests passed")
