@@ -6,6 +6,9 @@ class Solution:
     def largestRectangleArea(self, heights: List[int]) -> int:
         if not heights:
             return 0
+        # Idea: each popped bar can extend left back to the start of the popped
+        # range and right up to the current index.
+        # Time O(n): every bar is pushed and popped once. Space O(n) for the stack.
         # monotonic stack of (start index, height) with increasing heights
         stack = []
         best = 0
