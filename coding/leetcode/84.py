@@ -23,3 +23,11 @@ class Solution:
         for start_idx, height in stack:
             best = max(best, height * (n - start_idx))
         return best
+
+
+if __name__ == "__main__":
+    sol = Solution()
+    assert sol.largestRectangleArea([2, 1, 5, 6, 2, 3]) == 10
+    assert sol.largestRectangleArea([2, 4]) == 4
+    assert sol.largestRectangleArea([1]) == 1
+    print("all tests passed")
