@@ -6,14 +6,16 @@ class Solution:
     def largestRectangleArea(self, heights: List[int]) -> int:
         if not heights:
             return 0
-        # brute force: for every bar, expand left and right while bars are >= it
+        # monotonic stack of (start index, height) with increasing heights
+        stack = []
         best = 0
-        for i in range(len(heights)):
-            left = i
-            while left > 0 and heights[left - 1] >= heights[i]:
-                left -= 1
-            right = i
-            while right < len(heights) - 1 and heights[right + 1] >= heights[i]:
-                right += 1
-            best = max(best, heights[i] * (right - left + 1))
+        for i, h in enumerate(heights):
+            start = i
+            while stack and stack[-1][1] > h:
+                idx, height = stack.pop()
+                best = max(best, height * (i - idx))
+                start = idx
+            stack.append((start, h))
+        for idx, height in stack:
+            best = max(best, height * (len(heights) - idx))
         return best
