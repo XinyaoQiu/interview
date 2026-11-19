@@ -30,4 +30,19 @@ if __name__ == "__main__":
     assert sol.largestRectangleArea([2, 1, 5, 6, 2, 3]) == 10
     assert sol.largestRectangleArea([2, 4]) == 4
     assert sol.largestRectangleArea([1]) == 1
+    assert sol.largestRectangleArea([]) == 0
+    assert sol.largestRectangleArea([0]) == 0
+    assert sol.largestRectangleArea([5, 5, 5, 5]) == 20
+    assert sol.largestRectangleArea([1, 2, 3, 4, 5]) == 9
+    assert sol.largestRectangleArea([5, 4, 3, 2, 1]) == 9
+    assert sol.largestRectangleArea([2, 0, 2]) == 2
+    import random
+    for _ in range(300):
+        arr = [random.randint(0, 9) for _ in range(random.randint(1, 12))]
+        expected = max(
+            min(arr[i:j + 1]) * (j - i + 1)
+            for i in range(len(arr))
+            for j in range(i, len(arr))
+        )
+        assert sol.largestRectangleArea(arr) == expected, arr
     print("all tests passed")
