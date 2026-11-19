@@ -15,10 +15,11 @@ class Solution:
         for i, h in enumerate(heights):
             start = i
             while stack and stack[-1][1] > h:
-                idx, height = stack.pop()
-                best = max(best, height * (i - idx))
-                start = idx
+                start_idx, height = stack.pop()
+                best = max(best, height * (i - start_idx))
+                start = start_idx
             stack.append((start, h))
-        for idx, height in stack:
-            best = max(best, height * (len(heights) - idx))
+        n = len(heights)
+        for start_idx, height in stack:
+            best = max(best, height * (n - start_idx))
         return best
