@@ -29,4 +29,8 @@ if __name__ == "__main__":
     assert sorted(sol.topKFrequent([1, 1, 1, 2, 2, 3], 2)) == [1, 2]
     assert sol.topKFrequent([1], 1) == [1]
     assert sorted(sol.topKFrequent([4, 4, 5, 5, 6], 2)) == [4, 5]
+    assert sol.topKFrequent([], 3) == []
+    assert sol.topKFrequent([1, 2, 3], 0) == []
+    assert sorted(sol.topKFrequent([-1, -1, 0, 0, 0, 7], 1)) == [0]
+    assert sorted(sol.topKFrequent([1, 2, 3], 3)) == [1, 2, 3]
     print("all tests passed")
