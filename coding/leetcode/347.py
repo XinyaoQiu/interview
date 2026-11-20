@@ -11,13 +11,13 @@ class Solution:
         if not nums or k <= 0:
             return []
         counts = Counter(nums)
-        # bucket sort: buckets[f] holds the values that appear exactly f times
-        buckets = [[] for _ in range(len(nums) + 1)]
-        for x, f in counts.items():
-            buckets[f].append(x)
+        # bucket sort: by_freq[f] holds the values that appear exactly f times
+        by_freq = [[] for _ in range(len(nums) + 1)]
+        for value, f in counts.items():
+            by_freq[f].append(value)
         result = []
         for f in range(len(nums), 0, -1):
-            for x in buckets[f]:
+            for x in by_freq[f]:
                 result.append(x)
                 if len(result) == k:
                     return result
