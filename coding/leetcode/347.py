@@ -3,6 +3,9 @@ from typing import *
 
 class Solution:
     # Return the k most frequent elements of nums.
+    # Idea: count occurrences, then group values by frequency (a frequency
+    # can be at most len(nums)) and read the buckets from high to low.
+    # Time O(n), space O(n).
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         if not nums or k <= 0:
             return []
