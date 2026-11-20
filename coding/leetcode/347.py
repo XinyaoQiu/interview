@@ -33,4 +33,16 @@ if __name__ == "__main__":
     assert sol.topKFrequent([1, 2, 3], 0) == []
     assert sorted(sol.topKFrequent([-1, -1, 0, 0, 0, 7], 1)) == [0]
     assert sorted(sol.topKFrequent([1, 2, 3], 3)) == [1, 2, 3]
+    import random
+    from collections import Counter as C
+
+    for _ in range(300):
+        nums = [random.randint(-5, 5) for _ in range(random.randint(1, 30))]
+        cnt = C(nums)
+        k = random.randint(1, len(cnt))
+        got = sol.topKFrequent(nums, k)
+        assert len(got) == k and len(set(got)) == k
+        # every returned value must be at least as frequent as any omitted one
+        threshold = sorted(cnt.values(), reverse=True)[k - 1]
+        assert all(cnt[x] >= threshold for x in got)
     print("all tests passed")
