@@ -22,3 +22,11 @@ class Solution:
                 if len(result) == k:
                     return result
         return result
+
+
+if __name__ == "__main__":
+    sol = Solution()
+    assert sorted(sol.topKFrequent([1, 1, 1, 2, 2, 3], 2)) == [1, 2]
+    assert sol.topKFrequent([1], 1) == [1]
+    assert sorted(sol.topKFrequent([4, 4, 5, 5, 6], 2)) == [4, 5]
+    print("all tests passed")
