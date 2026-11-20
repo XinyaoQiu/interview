@@ -1,4 +1,5 @@
 from typing import *
+from collections import Counter
 
 
 class Solution:
@@ -9,9 +10,7 @@ class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         if not nums or k <= 0:
             return []
-        counts = {}
-        for x in nums:
-            counts[x] = counts.get(x, 0) + 1
+        counts = Counter(nums)
         # bucket sort: buckets[f] holds the values that appear exactly f times
         buckets = [[] for _ in range(len(nums) + 1)]
         for x, f in counts.items():
