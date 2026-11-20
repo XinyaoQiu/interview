@@ -9,6 +9,14 @@ class Solution:
         counts = {}
         for x in nums:
             counts[x] = counts.get(x, 0) + 1
-        # brute force: sort all distinct values by frequency
-        ordered = sorted(counts, key=lambda x: counts[x], reverse=True)
-        return ordered[:k]
+        # bucket sort: buckets[f] holds the values that appear exactly f times
+        buckets = [[] for _ in range(len(nums) + 1)]
+        for x, f in counts.items():
+            buckets[f].append(x)
+        result = []
+        for f in range(len(nums), 0, -1):
+            for x in buckets[f]:
+                result.append(x)
+                if len(result) == k:
+                    return result
+        return result
