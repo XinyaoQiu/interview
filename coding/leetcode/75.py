@@ -7,6 +7,8 @@ class Solution:
         Do not return anything, modify nums in-place instead.
         Idea: values are only 0, 1, 2, so no general sort is needed.
         """
+        if len(nums) < 2:
+            return
         counts = [0, 0, 0]
         for x in nums:
             counts[x] += 1
