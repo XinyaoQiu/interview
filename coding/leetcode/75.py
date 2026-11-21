@@ -25,3 +25,15 @@ class Solution:
             else:
                 nums[i], nums[two_start] = nums[two_start], nums[i]
                 two_start -= 1
+
+
+if __name__ == "__main__":
+    s = Solution()
+    for arr, want in [
+        ([2, 0, 2, 1, 1, 0], [0, 0, 1, 1, 2, 2]),
+        ([2, 0, 1], [0, 1, 2]),
+        ([0], [0]),
+    ]:
+        s.sortColors(arr)
+        assert arr == want, (arr, want)
+    print("all tests passed")
