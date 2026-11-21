@@ -9,11 +9,14 @@ class Solution:
         """
         if len(nums) < 2:
             return
-        counts = [0, 0, 0]
-        for x in nums:
-            counts[x] += 1
-        i = 0
-        for color in range(3):
-            for _ in range(counts[color]):
-                nums[i] = color
-                i += 1
+        low, mid, high = 0, 0, len(nums) - 1
+        while mid <= high:
+            if nums[mid] == 0:
+                nums[low], nums[mid] = nums[mid], nums[low]
+                low += 1
+                mid += 1
+            elif nums[mid] == 1:
+                mid += 1
+            else:
+                nums[mid], nums[high] = nums[high], nums[mid]
+                high -= 1
