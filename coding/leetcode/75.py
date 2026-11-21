@@ -6,6 +6,11 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         Idea: values are only 0, 1, 2, so no general sort is needed.
+        Dutch national flag: keep three regions, [0, low) is 0s,
+        [low, mid) is 1s, (high, end] is 2s, and [mid, high] is unknown.
+        A 2 is swapped to the back without advancing mid, since the value
+        swapped in is unseen.
+        Time: O(n), single pass. Space: O(1).
         """
         if len(nums) < 2:
             return
