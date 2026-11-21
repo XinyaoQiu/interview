@@ -41,4 +41,11 @@ if __name__ == "__main__":
     ]:
         s.sortColors(arr)
         assert arr == want, (arr, want)
+    import random
+
+    for _ in range(500):
+        arr = [random.randint(0, 2) for _ in range(random.randint(0, 12))]
+        want = sorted(arr)
+        s.sortColors(arr)
+        assert arr == want, (arr, want)
     print("all tests passed")
