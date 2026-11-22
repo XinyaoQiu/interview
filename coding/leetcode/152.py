@@ -5,6 +5,7 @@ class Solution:
     # Find the contiguous subarray with the largest product.
     # Track both max and min product ending here, since a negative
     # number can turn the min into the max.
+    # Time: O(n), Space: O(1)
     def maxProduct(self, nums: List[int]) -> int:
         if not nums:
             return 0
