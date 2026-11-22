@@ -16,3 +16,10 @@ class Solution:
             cur_min = min(options)
             best = max(best, cur_max)
         return best
+
+
+if __name__ == "__main__":
+    s = Solution()
+    assert s.maxProduct([2, 3, -2, 4]) == 6
+    assert s.maxProduct([-2, 0, -1]) == 0
+    print("basic tests passed")
