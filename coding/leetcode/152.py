@@ -9,6 +9,7 @@ class Solution:
     def maxProduct(self, nums: List[int]) -> int:
         if not nums:
             return 0
+        # Seed with the first element so all-negative arrays work.
         cur_max = cur_min = best = nums[0]
         for x in nums[1:]:
             options = (x, cur_max * x, cur_min * x)
@@ -28,4 +29,4 @@ if __name__ == "__main__":
     assert s.maxProduct([0, 2]) == 2
     assert s.maxProduct([-1, -2, -3, 0, 5]) == 6
     assert s.maxProduct([2, -5, -2, -4, 3]) == 24
-    print("basic tests passed")
+    print("all tests passed")
