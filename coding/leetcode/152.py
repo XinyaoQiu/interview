@@ -22,4 +22,7 @@ if __name__ == "__main__":
     s = Solution()
     assert s.maxProduct([2, 3, -2, 4]) == 6
     assert s.maxProduct([-2, 0, -1]) == 0
+    assert s.maxProduct([-2]) == -2
+    assert s.maxProduct([0]) == 0
+    assert s.maxProduct([-2, 3, -4]) == 24
     print("basic tests passed")
