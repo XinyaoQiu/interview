@@ -27,3 +27,24 @@ class Solution:
             return res
 
         return match(0, 0)
+
+
+if __name__ == "__main__":
+    sol = Solution()
+    cases = [
+        ("aa", "a", False),
+        ("aa", "a*", True),
+        ("ab", ".*", True),
+        ("aab", "c*a*b", True),
+        ("mississippi", "mis*is*p*.", False),
+        ("", "", True),
+        ("", "a*", True),
+        ("", ".*", True),
+        ("a", "", False),
+        ("a", "ab*", True),
+        ("aaa", "a*a", True),
+        ("ab", ".*c", False),
+    ]
+    for s, p, expected in cases:
+        assert sol.isMatch(s, p) == expected, (s, p, expected)
+    print("all tests passed")
