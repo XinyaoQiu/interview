@@ -11,6 +11,6 @@ class Solution:
         # Iterative: start with the empty subset, and for each number
         # append a copy of every existing subset extended with it.
         res = [[]]
-        for x in nums:
-            res += [sub + [x] for sub in res]
+        for num in nums:
+            res += [subset + [num] for subset in res]
         return res
