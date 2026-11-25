@@ -27,3 +27,10 @@ class Solution:
             if i >= k - 1:
                 res.append(nums[window[0]])
         return res
+
+
+if __name__ == "__main__":
+    sol = Solution()
+    assert sol.maxSlidingWindow([1, 3, -1, -3, 5, 3, 6, 7], 3) == [3, 3, 5, 5, 6, 7]
+    assert sol.maxSlidingWindow([1], 1) == [1]
+    print("all tests passed")
