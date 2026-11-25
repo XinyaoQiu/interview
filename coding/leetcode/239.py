@@ -5,7 +5,12 @@ from collections import deque
 class Solution:
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
         # Idea: report the maximum of every window of size k.
-        # Monotonic deque of indices, values decreasing from front to back.
+        # Approach: keep a deque of indices whose values are decreasing, so the
+        # front always holds the index of the current window maximum.
+        # - pop from the back while the new value is >= the back value
+        # - pop from the front when its index has left the window
+        # Time: O(n), each index is pushed and popped at most once.
+        # Space: O(k) for the deque (plus O(n) for the output).
         if not nums or k <= 0:
             return []
         if k == 1:
