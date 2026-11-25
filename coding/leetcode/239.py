@@ -39,4 +39,12 @@ if __name__ == "__main__":
     assert sol.maxSlidingWindow([5, 5, 5, 5], 2) == [5, 5, 5]
     assert sol.maxSlidingWindow([7, 6, 5, 4, 3], 3) == [7, 6, 5]
     assert sol.maxSlidingWindow([1, 2, 3, 4, 5], 3) == [3, 4, 5]
+    # cross-check against brute force on random inputs
+    import random
+    for _ in range(300):
+        n = random.randint(1, 30)
+        arr = [random.randint(-10, 10) for _ in range(n)]
+        w = random.randint(1, n)
+        expected = [max(arr[i:i + w]) for i in range(n - w + 1)]
+        assert sol.maxSlidingWindow(arr, w) == expected
     print("all tests passed")
