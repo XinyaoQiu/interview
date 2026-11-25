@@ -36,4 +36,7 @@ if __name__ == "__main__":
     assert sol.maxSlidingWindow([1, -1], 1) == [1, -1]
     assert sol.maxSlidingWindow([9, 11], 2) == [11]
     assert sol.maxSlidingWindow([4, -2], 2) == [4]
+    assert sol.maxSlidingWindow([5, 5, 5, 5], 2) == [5, 5, 5]
+    assert sol.maxSlidingWindow([7, 6, 5, 4, 3], 3) == [7, 6, 5]
+    assert sol.maxSlidingWindow([1, 2, 3, 4, 5], 3) == [3, 4, 5]
     print("all tests passed")
