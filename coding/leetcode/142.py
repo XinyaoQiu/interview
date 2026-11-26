@@ -49,4 +49,11 @@ if __name__ == "__main__":
     assert s.detectCycle(nodes[0]) is nodes[0]
     nodes = build([1], -1)
     assert s.detectCycle(nodes[0]) is None
+    assert s.detectCycle(None) is None
+    nodes = build([1], 0)
+    assert s.detectCycle(nodes[0]) is nodes[0]
+    nodes = build([1, 2, 3, 4, 5], -1)
+    assert s.detectCycle(nodes[0]) is None
+    nodes = build(list(range(100)), 57)
+    assert s.detectCycle(nodes[0]) is nodes[57]
     print("all tests passed")
