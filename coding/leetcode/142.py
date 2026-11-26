@@ -29,3 +29,24 @@ class Solution:
                     fast = fast.next
                 return slow
         return None
+
+
+def build(vals, pos):
+    """Build a list from vals; tail connects to index pos (-1 for no cycle)."""
+    nodes = [ListNode(v) for v in vals]
+    for a, b in zip(nodes, nodes[1:]):
+        a.next = b
+    if nodes and pos >= 0:
+        nodes[-1].next = nodes[pos]
+    return nodes
+
+
+if __name__ == "__main__":
+    s = Solution()
+    nodes = build([3, 2, 0, -4], 1)
+    assert s.detectCycle(nodes[0]) is nodes[1]
+    nodes = build([1, 2], 0)
+    assert s.detectCycle(nodes[0]) is nodes[0]
+    nodes = build([1], -1)
+    assert s.detectCycle(nodes[0]) is None
+    print("all tests passed")
