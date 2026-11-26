@@ -16,12 +16,13 @@ class Solution:
     def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if not head or not head.next:
             return None
-        slow = fast = head
+        slow = head
+        fast = head
         while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
             if slow is fast:
-                # restart one pointer from head; they meet at the cycle start
+                # reset slow to head; both now move one step at a time
                 slow = head
                 while slow is not fast:
                     slow = slow.next
