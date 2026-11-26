@@ -10,4 +10,11 @@ class ListNode:
 # Idea: find the node where the cycle begins in a linked list, or None.
 class Solution:
     def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        pass
+        seen = set()
+        node = head
+        while node:
+            if node in seen:
+                return node
+            seen.add(node)
+            node = node.next
+        return None
