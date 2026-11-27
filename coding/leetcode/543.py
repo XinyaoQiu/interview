@@ -11,6 +11,8 @@ class TreeNode:
 class Solution:
     # Idea: the diameter is the longest path between two nodes, measured in edges.
     # For every node, the longest path through it is left depth + right depth.
+    # Time: O(n), each node is visited once.
+    # Space: O(h) recursion stack, h is the tree height (O(n) worst case).
     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
         if root is None:
             return 0
