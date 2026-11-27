@@ -30,3 +30,16 @@ class Solution:
 
         depth(root)
         return best
+
+
+if __name__ == "__main__":
+    s = Solution()
+    assert s.diameterOfBinaryTree(None) == 0
+    assert s.diameterOfBinaryTree(TreeNode(1)) == 0
+    assert s.diameterOfBinaryTree(TreeNode(1, TreeNode(2))) == 1
+    t = TreeNode(1, TreeNode(2, TreeNode(4), TreeNode(5)), TreeNode(3))
+    assert s.diameterOfBinaryTree(t) == 3
+    # longest path that does not pass through the root
+    t = TreeNode(1, TreeNode(2, TreeNode(3, TreeNode(4), TreeNode(5)), TreeNode(6, None, TreeNode(7))))
+    assert s.diameterOfBinaryTree(t) == 4
+    print("all tests passed")
