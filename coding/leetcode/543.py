@@ -12,6 +12,9 @@ class Solution:
     # Idea: the diameter is the longest path between two nodes, measured in edges.
     # For every node, the longest path through it is left depth + right depth.
     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+        if root is None:
+            return 0
+
         best = 0
 
         def depth(node):
