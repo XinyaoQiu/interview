@@ -3,6 +3,7 @@ from typing import *
 
 class Solution:
     # Idea: find the fewest perfect squares that sum to n.
+    # Time: O(n * sqrt(n)), Space: O(n)
     def numSquares(self, n: int) -> int:
         # dp[i] = fewest squares summing to i
         dp = [0] + [float("inf")] * n
