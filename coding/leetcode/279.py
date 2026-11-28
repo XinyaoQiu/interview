@@ -18,3 +18,14 @@ class Solution:
                     break
                 dp[i] = min(dp[i], dp[i - sq] + 1)
         return dp[n]
+
+
+if __name__ == "__main__":
+    s = Solution()
+    assert s.numSquares(1) == 1
+    assert s.numSquares(12) == 3
+    assert s.numSquares(13) == 2
+    assert s.numSquares(16) == 1
+    assert s.numSquares(7) == 4
+    assert s.numSquares(10000) == 1
+    print("all tests passed")
